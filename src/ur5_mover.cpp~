@@ -183,7 +183,7 @@ int main(int argc, char **argv)
    //float ya = start_state.position.y - 0.6;
 
    //for(int i = 0; i<(int)(xa/0.02); i++){
-  waypoints.push_back(target_pose3);
+
   target_pose3.position.x = 0.12;
   target_pose3.position.z = -0.4;
   target_pose3.position.y = 0.77;

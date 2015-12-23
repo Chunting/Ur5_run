@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+import rospy
+import geometry_msgs.msg
+
+def publisher():
+	pub = rospy.Publisher('location',geometry_msgs.msg.Pose, queue_size = 1)
+	rospy.init_node('publisher',anonymous = True)
+	rate = rospy.Rate(10)
+	while not rospy.is_shutdown():
+		wpose = geometry_msgs.msg.Pose()
+		wpose.orientation.w = 0.33
+		wpose.orientation.x = 0.33
+		wpose.orientation.y = 0.33
+		wpose.orientation.z = 0.33
+		wpose.position.x = -0.3
+		wpose.position.y = 0.2
+		wpose.position.z = 0.5
+		pub.publish(wpose)
+		rate.sleep()
+
+if __name__ == '__main__':
+	try:
+		publisher()
+	except rospy.RosInterruptException:
+		pass
